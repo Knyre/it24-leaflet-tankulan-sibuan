@@ -9,7 +9,6 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 
 L.control.scale().addTo(map);
 
-// Makes a colored pin icon
 function coloredPin(color) {
   return L.divIcon({
     className: "",
@@ -26,7 +25,6 @@ function coloredPin(color) {
   });
 }
 
-// Main pin (first in the list) + school landmarks
 const places = [
   {
     name: "Tankulan",
@@ -38,19 +36,19 @@ const places = [
     name: "Manolo Fortich Central Elementary School",
     coords: [8.36919, 124.86435],
     info: "Public elementary school.",
-    color: "#f4a100", // orange
+    color: "#f4a100",
   },
   {
     name: "Manolo Fortich National High School",
     coords: [8.36864, 124.863],
     info: "Public secondary school.",
-    color: "#2a9d4b", // green
+    color: "#2a9d4b",
   },
   {
     name: "Northern Bukidnon State College",
     coords: [8.36001, 124.86839],
     info: "State college offering college programs.",
-    color: "#1d6fd8", // blue
+    color: "#1d6fd8",
   },
 ];
 
@@ -60,7 +58,6 @@ places.forEach(function (place) {
     .bindPopup("<b>" + place.name + "</b><br>" + place.info);
 });
 
-// 500-meter radius circle around the main pin (Tankulan)
 L.circle(places[0].coords, {
   radius: 500,
   color: "#1fb8a6",
@@ -70,7 +67,6 @@ L.circle(places[0].coords, {
   .addTo(map)
   .bindTooltip("500 m radius");
 
-// Show coordinates when the map is clicked
 const coordsBox = document.getElementById("coords");
 
 map.on("click", function (e) {
